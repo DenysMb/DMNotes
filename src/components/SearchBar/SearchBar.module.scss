@@ -1,0 +1,25 @@
+.SearchBar {
+  margin-bottom: 32px;
+  width: 100%;
+  display: flex;
+  background-color: #fff;
+  border-radius: 8px;
+  align-items: center;
+
+  &Input {
+    padding: 16px;
+    border-radius: 8px;
+    border: none;
+    flex: 1;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &Icon {
+    margin: 0px 8px;
+  }
+}

@@ -1,3 +1,14 @@
 .AppContainer {
-  background-color: #fbfaff;
+  flex: 1;
+  background-color: #ECEFF1;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  // -ms-overflow-style: none;
+  // scrollbar-width: none;
+
+  // &::-webkit-scrollbar {
+  //   display: none;
+  // }
 }

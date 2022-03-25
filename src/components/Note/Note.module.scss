@@ -1,0 +1,91 @@
+.Note {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  border-right: 16px solid #212121;
+
+  &Title {
+    margin: 0px 0px 8px 0px;
+  }
+
+  &Body {
+    margin: 0;
+  }
+
+  &Red {
+    border-right-color: #EF9A9A;
+    // background-color: #EF9A9A;
+  }
+  &Pink {
+    border-right-color: #F48FB1;
+    // background-color: #F48FB1;
+  }
+  &Purple {
+    border-right-color: #CE93D8;
+    // background-color: #CE93D8;
+  }
+  &Deeppurple {
+    border-right-color: #B39DDB;
+    // background-color: #B39DDB;
+  }
+  &Indigo {
+    border-right-color: #9FA8DA;
+    // background-color: #9FA8DA;
+  }
+  &Blue {
+    border-right-color: #90CAF9;
+    // background-color: #90CAF9;
+  }
+  &Lightblue {
+    border-right-color: #81D4FA;
+    // background-color: #81D4FA;
+  }
+  &Cyan {
+    border-right-color: #80DEEA;
+    // background-color: #80DEEA;
+  }
+  &Teal {
+    border-right-color: #80CBC4;
+    // background-color: #80CBC4;
+  }
+  &Green {
+    border-right-color: #A5D6A7;
+    // background-color: #A5D6A7;
+  }
+  &Lightgreen {
+    border-right-color: #C5E1A5;
+    // background-color: #C5E1A5;
+  }
+  &Lime {
+    border-right-color: #E6EE9C;
+    // background-color: #E6EE9C;
+  }
+  &Yellow {
+    border-right-color: #FFF59D;
+    // background-color: #FFF59D;
+  }
+  &Amber {
+    border-right-color: #FFE082;
+    // background-color: #FFE082;
+  }
+  &Orange {
+    border-right-color: #FFCC80;
+    // background-color: #FFCC80;
+  }
+  &Deeporange {
+    border-right-color: #FFAB91;
+    // background-color: #FFAB91;
+  }
+  &Brown {
+    border-right-color: #BCAAA4;
+    // background-color: #BCAAA4;
+  }
+  &Grey {
+    border-right-color: #616161;
+    // background-color: #616161;
+  }
+  &Bluegrey {
+    border-right-color: #B0BEC5;
+    // background-color: #B0BEC5;
+  }
+}

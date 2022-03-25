@@ -3,10 +3,10 @@ import Styles from "./Header.module.scss";
 
 const Header = () => {
   return (
-    <div className={Styles.HeaderContainer}>
-      <div className={Styles.HeaderTitle}>
+    <div className={Styles.Header}>
+      <h1 className={Styles.HeaderTitle}>
         DMNotes
-      </div>
+      </h1>
     </div>
   );
 };

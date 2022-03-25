@@ -1,3 +1,13 @@
-.HomeContainer {
-    padding: 16px 32px;
+.Home {
+  flex: 1;
+
+  &Notes {
+    & > div {
+      margin-bottom: 32px;
+
+      &:last-child {
+        margin-bottom: 0px;
+      }
+    }
+  }
 }

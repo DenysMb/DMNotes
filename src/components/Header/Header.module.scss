@@ -1,3 +1,7 @@
-.HeaderContainer {
-  padding: 16px 32px;
+.Header {
+  margin-bottom: 32px;
+
+  &Title {
+    margin: 0;
+  }
 }

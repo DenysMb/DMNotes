@@ -1,0 +1,21 @@
+.Button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #ffcc80;
+  margin-top: 32px;
+  cursor: pointer;
+
+  &Text {
+    margin: 0;
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  &Icon {
+    margin-right: 8px;
+  }
+}
