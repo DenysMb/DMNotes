@@ -1,0 +1,246 @@
+.Editor {
+  background-color: #93bffe;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  transition: 0.3s all;
+  height: 100%;
+
+  &Header {
+    padding: 32px 32px 16px 32px;
+    transition: 0.3s all;
+
+    p {
+      margin: 0px 16px;
+
+      @media only screen and (max-width: 600px) {
+        & {
+          display: none;
+        }
+      }
+    }
+
+    &Actions {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+
+      &Back,
+      &ShowColors {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+
+      &Title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+
+        input {
+          flex: 1;
+          margin: 0px;
+          border: none;
+          background-color: transparent;
+          text-align: center;
+          font-size: 16px;
+          font-weight: 700;
+
+          &::placeholder {
+            color: #222;
+            font-weight: 400;
+          }
+
+          &:focus {
+            outline: none;
+          }
+        }
+
+        @media only screen and (max-width: 600px) {
+          & {
+            margin: 0px 16px;
+          }
+        }
+      }
+    }
+
+    &Colors {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      & > div {
+        margin: 16px;
+
+        @media only screen and (max-width: 600px) {
+          & {
+            margin: 8px;
+          }
+        }
+      }
+    }
+  }
+
+  &Body {
+    background-color: #fff;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    padding: 32px 32px 0px 32px;
+    flex: 1;
+    display: flex;
+    overflow: auto;
+  }
+
+  &Button {
+    background-color: #fff;
+    padding: 32px;
+
+    @media only screen and (max-width: 600px) {
+      & {
+        padding: 16px;
+      }
+    }
+  }
+
+  &RED {
+    background-color: #ef9a9a;
+  }
+  &PINK {
+    background-color: #f48fb1;
+  }
+  &PURPLE {
+    background-color: #ce93d8;
+  }
+  &DEEPPURPLE {
+    background-color: #b39ddb;
+  }
+  &INDIGO {
+    background-color: #9fa8da;
+  }
+  &BLUE {
+    background-color: #90caf9;
+  }
+  &LIGHTBLUE {
+    background-color: #81d4fa;
+  }
+  &CYAN {
+    background-color: #80deea;
+  }
+  &TEAL {
+    background-color: #80cbc4;
+  }
+  &GREEN {
+    background-color: #a5d6a7;
+  }
+  &LIGHTGREEN {
+    background-color: #c5e1a5;
+  }
+  &LIME {
+    background-color: #e6ee9c;
+  }
+  &YELLOW {
+    background-color: #fff59d;
+  }
+  &AMBER {
+    background-color: #ffe082;
+  }
+  &ORANGE {
+    background-color: #ffcc80;
+  }
+  &DEEPORANGE {
+    background-color: #ffab91;
+  }
+  &BROWN {
+    background-color: #bcaaa4;
+  }
+  &GREY {
+    background-color: #b0bec5;
+  }
+}
+
+.RDWEditor {
+  &Toolbar {
+    border-radius: 8px !important;
+  }
+
+  &Wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 !important;
+  }
+
+  &Editor {
+    height: auto !important;
+    flex: 1 !important;
+    border-radius: 8px !important;
+  }
+}
+
+.EditorColorTag {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid rgba(34, 34, 34, 0.25);
+  cursor: pointer;
+
+  &Active {
+    border: 1px solid rgba(34, 34, 34, 0.5);
+  }
+
+  &RED {
+    background-color: #ef9a9a;
+  }
+  &PINK {
+    background-color: #f48fb1;
+  }
+  &PURPLE {
+    background-color: #ce93d8;
+  }
+  &DEEPPURPLE {
+    background-color: #b39ddb;
+  }
+  &INDIGO {
+    background-color: #9fa8da;
+  }
+  &BLUE {
+    background-color: #90caf9;
+  }
+  &LIGHTBLUE {
+    background-color: #81d4fa;
+  }
+  &CYAN {
+    background-color: #80deea;
+  }
+  &TEAL {
+    background-color: #80cbc4;
+  }
+  &GREEN {
+    background-color: #a5d6a7;
+  }
+  &LIGHTGREEN {
+    background-color: #c5e1a5;
+  }
+  &LIME {
+    background-color: #e6ee9c;
+  }
+  &YELLOW {
+    background-color: #fff59d;
+  }
+  &AMBER {
+    background-color: #ffe082;
+  }
+  &ORANGE {
+    background-color: #ffcc80;
+  }
+  &DEEPORANGE {
+    background-color: #ffab91;
+  }
+  &BROWN {
+    background-color: #bcaaa4;
+  }
+  &GREY {
+    background-color: #b0bec5;
+  }
+}

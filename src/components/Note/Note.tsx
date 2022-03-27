@@ -1,34 +1,14 @@
 import React from "react";
+import { colors } from "../../shared/constants";
 import Styles from "./Note.module.scss";
 
 export type NoteProps = {
-  color?:
-    | "red"
-    | "pink"
-    | "purple"
-    | "deeppurple"
-    | "indigo"
-    | "blue"
-    | "lightblue"
-    | "cyan"
-    | "teal"
-    | "green"
-    | "lightgreen"
-    | "lime"
-    | "yellow"
-    | "amber"
-    | "orange"
-    | "deeporange"
-    | "brown"
-    | "grey"
-    | "bluegrey";
+  color?: typeof colors[number]
 };
 
-const Note = ({ color = "grey" }: NoteProps) => {
-  const borderColor = color[0].toUpperCase() + color.slice(1);
-
+const Note = ({ color = "GREY" }: NoteProps) => {
   return (
-    <div className={`${Styles.Note} ${Styles["Note" + borderColor]}`}>
+    <div className={`${Styles.Note} ${Styles["Note" + color]}`}>
       <h3 className={Styles.NoteTitle}>Non excepteur mollit</h3>
 
       <p className={Styles.NoteBody}>

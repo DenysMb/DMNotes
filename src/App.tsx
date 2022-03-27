@@ -1,18 +1,20 @@
 import React from "react";
-import Header from "./components/Header";
 import Home from "./features/Home";
+import Editor from "./features/Editor";
 import Styles from "./App.module.scss";
-import SearchBar from "./components/SearchBar";
-import Button from "./components/Button";
+import { BrowserRouter } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 const App = () => {
   return (
-    <div className={Styles.AppContainer}>
-      <Header />
-      <SearchBar />
-      <Home />
-      <Button icon={"➕"} />
-    </div>
+    <BrowserRouter>
+      <div className={Styles.AppContainer}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/:id" element={<Editor />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 };
 

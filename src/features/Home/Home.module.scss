@@ -1,13 +1,13 @@
 .Home {
   flex: 1;
+  padding: 32px;
+  background-color: #eceff1;
+  display: flex;
+  flex-direction: column;
 
   &Notes {
     & > div {
       margin-bottom: 32px;
-
-      &:last-child {
-        margin-bottom: 0px;
-      }
     }
   }
 }
