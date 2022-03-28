@@ -1,7 +1,7 @@
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import React, { ButtonHTMLAttributes } from "react";
+import { NoteProps } from "../../hooks/useNotes";
 import Icon from "../Icon";
-import { NoteProps } from "../Note/Note";
 import Styles from "./Button.module.scss";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
