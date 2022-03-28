@@ -4,7 +4,7 @@ import Icon from "../Icon";
 import Styles from "./Header.module.scss";
 
 const Header = () => {
-  const user = useUser();
+  const { user } = useUser();
 
   return (
     <div className={Styles.Header}>

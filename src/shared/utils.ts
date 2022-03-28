@@ -4,7 +4,8 @@ import { auth, db } from "../firebase";
 export const fetcher = async (
   collectionName: string,
   key: string,
-  setter: (arg0: any) => void
+  setter: (arg0: any) => void,
+  loading: (arg0: boolean) => void
 ) => {
   const user = auth.currentUser;
 
@@ -18,7 +19,34 @@ export const fetcher = async (
 
     setter(data);
   } catch (err) {
-    console.error(err);
+    console.error("FETCHER ERROR", err);
     setter([]);
+  } finally {
+    loading(false);
+  }
+};
+
+export const fetchNote = async (
+  id: number,
+  setter: (arg0: any) => void,
+  loading: (arg0: boolean) => void
+) => {
+  const user = auth.currentUser;
+
+  try {
+    const q = query(
+      collection(db, "notes"),
+      where("user", "==", user?.uid),
+      where("id", "==", id)
+    );
+    const doc = await getDocs(q);
+    const data = doc.docs[0].data();
+
+    setter(data);
+  } catch (err) {
+    console.error("FETCH NOTE ERROR", err);
+    setter(undefined);
+  } finally {
+    loading(false);
   }
 };

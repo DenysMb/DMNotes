@@ -1,11 +1,11 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Button from "../../components/Button";
 import Icon from "../../components/Icon";
 import Styles from "./Editor.module.scss";
 import { Editor as RDWEditor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-import { convertToRaw, EditorState } from "draft-js";
+import { ContentState, convertToRaw, EditorState } from "draft-js";
 import {
   colors,
   toolbarOptionsDesktop,
@@ -13,11 +13,20 @@ import {
 } from "../../shared/constants";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 import draftToHtml from "draftjs-to-html";
+import useNote from "../../hooks/useNote";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../../firebase";
+import Loading from "../../components/Loading";
 
 const Editor = () => {
+  const [user] = useAuthState(auth);
   const { width } = useWindowDimensions();
   const randomColor = colors[Math.floor(Math.random() * colors.length)];
   const navigate = useNavigate();
+  const params = useParams();
+  const id = params.id ? parseInt(params.id) : 0;
+  const { note, loading } = useNote(id);
+  const [title, setTitle] = useState("");
   const [color, setColor] = useState(randomColor);
   const [showColors, setShowColors] = useState(false);
   const [editorState, setEditorState] = useState(() =>
@@ -36,8 +45,37 @@ const Editor = () => {
     navigate("/", { replace: true });
   };
 
+  const handleSaveNote = () => {
+    const text = draftToHtml(convertToRaw(editorState.getCurrentContent()));
+    const result = {
+      user: user?.uid,
+      id,
+      color,
+      title,
+      note: text,
+    };
+
+    console.log("NEW NOTE", result);
+  };
+
+  useEffect(() => {
+    setTitle(note?.title || "");
+    setColor(note?.color || randomColor);
+    setEditorState(
+      EditorState.createWithContent(
+        ContentState.createFromText(note?.note || "")
+      )
+    );
+  }, [note]);
+
+  useEffect(() => {
+    if (!user) return navigate("/login");
+  }, [user]);
+
   return (
     <div className={`${Styles.Editor} ${Styles["Editor" + color]}`}>
+      {loading && <Loading />}
+
       <div className={Styles.EditorHeader}>
         <div className={Styles.EditorHeaderActions}>
           <div className={Styles.EditorHeaderActionsBack} onClick={handleBack}>
@@ -46,7 +84,12 @@ const Editor = () => {
           </div>
 
           <div className={Styles.EditorHeaderActionsTitle}>
-            <input type="text" placeholder="No title" />
+            <input
+              type="text"
+              placeholder="No title"
+              value={title}
+              onChange={(element) => setTitle(element.target.value)}
+            />
           </div>
 
           <div
@@ -84,17 +127,7 @@ const Editor = () => {
       </div>
 
       <div className={Styles.EditorButton}>
-        <Button
-          label="Save"
-          color={color}
-          fullWidth
-          onClick={() => {
-            console.log(
-              "Note",
-              draftToHtml(convertToRaw(editorState.getCurrentContent()))
-            );
-          }}
-        />
+        <Button label="Save" color={color} fullWidth onClick={handleSaveNote} />
       </div>
     </div>
   );

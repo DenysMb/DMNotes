@@ -9,27 +9,26 @@ import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import useNotes from "../../hooks/useNotes";
+import Loading from "../../components/Loading";
 
 const Home = () => {
   const [user, loading] = useAuthState(auth);
-  const notes = useNotes();
+  const { notes, loading: loadingUser } = useNotes();
+  const newNoteId = notes.length + 1;
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (loading) return;
     if (!user) return navigate("/login");
-  }, [user, loading]);
-
-  useEffect(() => {
-    console.log("Notes", notes);
-  }, [notes]);
+  }, [user]);
 
   const handleNewNote = () => {
-    navigate("/new", { replace: true });
+    navigate("/" + newNoteId, { replace: true });
   };
 
   return (
     <div className={Styles.Home}>
+      {(loading || loadingUser) && <Loading />}
+
       <Header />
       <SearchBar />
       <div className={Styles.HomeNotes}>

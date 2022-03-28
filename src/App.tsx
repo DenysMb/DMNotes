@@ -9,33 +9,36 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./firebase";
 import Register from "./features/Register";
 import Reset from "./features/Reset";
+import { DataProvider } from "./context/DataContext";
 
 const App = () => {
   return (
     <BrowserRouter>
-      <div className={Styles.AppContainer}>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <RequireAuth>
-                <Home />
-              </RequireAuth>
-            }
-          />
-          <Route
-            path="/:id"
-            element={
-              <RequireAuth>
-                <Editor />
-              </RequireAuth>
-            }
-          />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/reset" element={<Reset />} />
-        </Routes>
-      </div>
+      <DataProvider>
+        <div className={Styles.AppContainer}>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <RequireAuth>
+                  <Home />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="/:id"
+              element={
+                <RequireAuth>
+                  <Editor />
+                </RequireAuth>
+              }
+            />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/reset" element={<Reset />} />
+          </Routes>
+        </div>
+      </DataProvider>
     </BrowserRouter>
   );
 };

@@ -9,13 +9,15 @@ export type UserProps = {
 };
 
 const useUser = () => {
+  const [loading, setLoading] = useState(true);
   const [user, setUser] = useState<UserProps[]>([]);
 
   useEffect(() => {
-    fetcher("users", "uid", setUser);
+    setLoading(true);
+    fetcher("users", "uid", setUser, setLoading);
   }, []);
 
-  return user[0];
+  return { user: user[0], loading };
 };
 
 export default useUser;

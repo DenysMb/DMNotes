@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { colors } from "../shared/constants";
-import { fetcher } from "../shared/utils";
+import { fetchNote } from "../shared/utils";
 
 export type NoteProps = {
   id: number;
@@ -10,16 +10,16 @@ export type NoteProps = {
   color?: typeof colors[number];
 };
 
-const useNotes = () => {
+const useNote = (id: number) => {
   const [loading, setLoading] = useState(true);
-  const [notes, setNotes] = useState<NoteProps[]>([]);
+  const [note, setNote] = useState<NoteProps | undefined>(undefined);
 
   useEffect(() => {
     setLoading(true);
-    fetcher("notes", "user", setNotes, setLoading);
+    fetchNote(id, setNote, setLoading);
   }, []);
 
-  return { notes, loading };
+  return { note, loading };
 };
 
-export default useNotes;
+export default useNote;
