@@ -27,7 +27,7 @@ const Home = () => {
 
   return (
     <div className={Styles.Home}>
-      {(loading || loadingUser) && <Loading />}
+      <Loading show={loading || loadingUser} />
 
       <Header />
       <SearchBar />

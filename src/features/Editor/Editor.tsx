@@ -74,7 +74,7 @@ const Editor = () => {
 
   return (
     <div className={`${Styles.Editor} ${Styles["Editor" + color]}`}>
-      {loading && <Loading />}
+      <Loading show={loading} />
 
       <div className={Styles.EditorHeader}>
         <div className={Styles.EditorHeaderActions}>
