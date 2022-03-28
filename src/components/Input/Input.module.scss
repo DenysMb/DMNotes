@@ -1,0 +1,23 @@
+.Input {
+  padding: 16px;
+  border-radius: 8px;
+  border: none;
+
+  &:focus {
+    outline: none;
+  }
+
+  &Container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &Error {
+    border: 1px solid #d32f2f;
+  }
+
+  &Helper {
+    margin: 8px 0px 0px 0px;
+    color: #d32f2f;
+  }
+}

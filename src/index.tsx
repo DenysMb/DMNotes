@@ -2,11 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
+import { fab, faGoogle } from "@fortawesome/free-brands-svg-icons";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-library.add(fas);
+library.add(fas, fab, faGoogle);
 
 ReactDOM.render(
   <React.StrictMode>
