@@ -2,7 +2,12 @@
   background-color: #fff;
   border-radius: 8px;
   padding: 16px;
-  border-right: 16px solid #212121;
+  max-height: 200px;
+  overflow: hidden;
+  border: 1px solid #000;
+  border-right: 16px solid #000;
+  display: flex;
+  flex-direction: column;
 
   &Title {
     margin: 0px 0px 8px 0px;
@@ -10,77 +15,253 @@
 
   &Body {
     margin: 0;
+    overflow: hidden;
+    position: relative;
+    flex: 1;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 10px;
+      background: linear-gradient(rgba(0, 0, 0, 0), #fff);
+    }
+
+    &RED {
+      &::after {
+        background: linear-gradient(rgba(0, 0, 0, 0), #ffebee);
+      }
+    }
+
+    &PINK {
+      &::after {
+        background: linear-gradient(rgba(0, 0, 0, 0), #fce4ec);
+      }
+    }
+
+    &PURPLE {
+      &::after {
+        background: linear-gradient(rgba(0, 0, 0, 0), #f3e5f5);
+      }
+    }
+
+    &DEEPPURPLE {
+      &::after {
+        background: linear-gradient(rgba(0, 0, 0, 0), #ede7f6);
+      }
+    }
+
+    &INDIGO {
+      &::after {
+        background: linear-gradient(rgba(0, 0, 0, 0), #e8eaf6);
+      }
+    }
+
+    &BLUE {
+      &::after {
+        background: linear-gradient(rgba(0, 0, 0, 0), #e3f2fd);
+      }
+    }
+
+    &LIGHTBLUE {
+      &::after {
+        background: linear-gradient(rgba(0, 0, 0, 0), #e1f5fe);
+      }
+    }
+
+    &CYAN {
+      &::after {
+        background: linear-gradient(rgba(0, 0, 0, 0), #e0f7fa);
+      }
+    }
+
+    &TEAL {
+      &::after {
+        background: linear-gradient(rgba(0, 0, 0, 0), #e0f2f1);
+      }
+    }
+
+    &GREEN {
+      &::after {
+        background: linear-gradient(rgba(0, 0, 0, 0), #e8f5e9);
+      }
+    }
+
+    &LIGHTGREEN {
+      &::after {
+        background: linear-gradient(rgba(0, 0, 0, 0), #f1f8e9);
+      }
+    }
+
+    &LIME {
+      &::after {
+        background: linear-gradient(rgba(0, 0, 0, 0), #f9fbe7);
+      }
+    }
+
+    &YELLOW {
+      &::after {
+        background: linear-gradient(rgba(0, 0, 0, 0), #fffde7);
+      }
+    }
+
+    &AMBER {
+      &::after {
+        background: linear-gradient(rgba(0, 0, 0, 0), #fff8e1);
+      }
+    }
+
+    &ORANGE {
+      &::after {
+        background: linear-gradient(rgba(0, 0, 0, 0), #fff3e0);
+      }
+    }
+
+    &DEEPORANGE {
+      &::after {
+        background: linear-gradient(rgba(0, 0, 0, 0), #fbe9e7);
+      }
+    }
+
+    &BROWN {
+      &::after {
+        background: linear-gradient(rgba(0, 0, 0, 0), #efebe9);
+      }
+    }
+
+    &GREY {
+      &::after {
+        background: linear-gradient(rgba(0, 0, 0, 0), #eceff1);
+      }
+    }
+  }
+
+  &Footer {
+    display: flex;
+    justify-content: flex-end;
+
+    p {
+      color: rgba(0, 0, 0, 0.5);
+      margin: 0;
+      font-size: 12px;
+
+      &:last-child {
+        margin-left: 16px;
+      }
+
+      span {
+        font-weight: 600;
+      }
+    }
   }
 
   &RED {
-    border-right-color: #ef9a9a;
+    border: 1px solid #ef9a9a;
+    border-right: 16px solid #ef9a9a;
+    background-color: #ffebee;
   }
 
   &PINK {
-    border-right-color: #f48fb1;
+    border: 1px solid #f48fb1;
+    border-right: 16px solid #f48fb1;
+    background-color: #fce4ec;
   }
 
   &PURPLE {
-    border-right-color: #ce93d8;
+    border: 1px solid #ce93d8;
+    border-right: 16px solid #ce93d8;
+    background-color: #f3e5f5;
   }
 
   &DEEPPURPLE {
-    border-right-color: #b39ddb;
+    border: 1px solid #b39ddb;
+    border-right: 16px solid #b39ddb;
+    background-color: #ede7f6;
   }
 
   &INDIGO {
-    border-right-color: #9fa8da;
+    border: 1px solid #9fa8da;
+    border-right: 16px solid #9fa8da;
+    background-color: #e8eaf6;
   }
 
   &BLUE {
-    border-right-color: #90caf9;
+    border: 1px solid #90caf9;
+    border-right: 16px solid #90caf9;
+    background-color: #e3f2fd;
   }
 
   &LIGHTBLUE {
-    border-right-color: #81d4fa;
+    border: 1px solid #81d4fa;
+    border-right: 16px solid #81d4fa;
+    background-color: #e1f5fe;
   }
 
   &CYAN {
-    border-right-color: #80deea;
+    border: 1px solid #80deea;
+    border-right: 16px solid #80deea;
+    background-color: #e0f7fa;
   }
 
   &TEAL {
-    border-right-color: #80cbc4;
+    border: 1px solid #80cbc4;
+    border-right: 16px solid #80cbc4;
+    background-color: #e0f2f1;
   }
 
   &GREEN {
-    border-right-color: #a5d6a7;
+    border: 1px solid #a5d6a7;
+    border-right: 16px solid #a5d6a7;
+    background-color: #e8f5e9;
   }
 
   &LIGHTGREEN {
-    border-right-color: #c5e1a5;
+    border: 1px solid #c5e1a5;
+    border-right: 16px solid #c5e1a5;
+    background-color: #f1f8e9;
   }
 
   &LIME {
-    border-right-color: #e6ee9c;
+    border: 1px solid #e6ee9c;
+    border-right: 16px solid #e6ee9c;
+    background-color: #f9fbe7;
   }
 
   &YELLOW {
-    border-right-color: #fff59d;
+    border: 1px solid #fff59d;
+    border-right: 16px solid #fff59d;
+    background-color: #fffde7;
   }
 
   &AMBER {
-    border-right-color: #ffe082;
+    border: 1px solid #ffe082;
+    border-right: 16px solid #ffe082;
+    background-color: #fff8e1;
   }
 
   &ORANGE {
-    border-right-color: #ffcc80;
+    border: 1px solid #ffcc80;
+    border-right: 16px solid #ffcc80;
+    background-color: #fff3e0;
   }
 
   &DEEPORANGE {
-    border-right-color: #ffab91;
+    border: 1px solid #ffab91;
+    border-right: 16px solid #ffab91;
+    background-color: #fbe9e7;
   }
 
   &BROWN {
-    border-right-color: #bcaaa4;
+    border: 1px solid #bcaaa4;
+    border-right: 16px solid #bcaaa4;
+    background-color: #efebe9;
   }
 
   &GREY {
-    border-right-color: #b0bec5;
+    border: 1px solid #b0bec5;
+    border-right: 16px solid #b0bec5;
+    background-color: #eceff1;
   }
 }

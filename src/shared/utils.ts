@@ -1,4 +1,12 @@
-import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  doc,
+  getDocs,
+  query,
+  updateDoc,
+  where,
+} from "firebase/firestore";
 import { auth, db } from "../firebase";
 
 export const fetcher = async (
@@ -42,7 +50,7 @@ export const fetchNote = async (
     const doc = await getDocs(q);
     const data = doc.docs[0].data();
 
-    setter(data);
+    setter({ ...data, _id: doc.docs[0].id });
   } catch (err) {
     console.error("FETCH NOTE ERROR", err);
     setter(undefined);
@@ -52,5 +60,27 @@ export const fetchNote = async (
 };
 
 export const save = async (collectionName: string, data: any) => {
-  addDoc(collection(db, collectionName), data);
+  const now = new Date().getTime();
+
+  addDoc(collection(db, collectionName), {
+    ...data,
+    createdAt: now,
+    updatedAt: now,
+  });
 };
+
+export const update = async (collectionName: string, id: string, data: any) => {
+  const now = new Date().getTime();
+  const document = doc(db, collectionName, id);
+
+  updateDoc(document, { ...data, updatedAt: now });
+};
+
+export const parseDate = (timestamp: number) =>
+  new Date(timestamp).toLocaleTimeString([], {
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  });

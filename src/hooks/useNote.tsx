@@ -3,6 +3,7 @@ import { colors } from "../shared/constants";
 import { fetchNote } from "../shared/utils";
 
 export type NoteProps = {
+  _id?: string;
   id: number;
   user: string;
   title?: string;

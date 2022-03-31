@@ -8,6 +8,8 @@ export type NoteProps = {
   title?: string;
   note?: string;
   color?: typeof colors[number];
+  createdAt: number;
+  updatedAt: number;
 };
 
 const useNotes = () => {

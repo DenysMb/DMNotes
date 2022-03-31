@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Button from "../../components/Button";
@@ -5,19 +6,18 @@ import Icon from "../../components/Icon";
 import Styles from "./Editor.module.scss";
 import { Editor as RDWEditor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-import { ContentState, convertToRaw, EditorState } from "draft-js";
+import { convertFromRaw, convertToRaw, EditorState } from "draft-js";
 import {
   colors,
   toolbarOptionsDesktop,
   toolbarOptionsMobile,
 } from "../../shared/constants";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
-import draftToHtml from "draftjs-to-html";
 import useNote from "../../hooks/useNote";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, db } from "../../firebase";
+import { auth } from "../../firebase";
 import Loading from "../../components/Loading";
-import { save } from "../../shared/utils";
+import { save, update } from "../../shared/utils";
 
 const Editor = () => {
   const [user] = useAuthState(auth);
@@ -47,7 +47,8 @@ const Editor = () => {
   };
 
   const handleSaveNote = () => {
-    const text = draftToHtml(convertToRaw(editorState.getCurrentContent()));
+    const text = JSON.stringify(convertToRaw(editorState.getCurrentContent()));
+    const _id = note?._id || "";
     const result = {
       user: user?.uid,
       id,
@@ -56,17 +57,23 @@ const Editor = () => {
       note: text,
     };
 
-    save("notes", result);
+    if (note) {
+      update("notes", _id, result);
+    } else {
+      save("notes", result);
+    }
+
+    handleBack();
   };
 
   useEffect(() => {
-    setTitle(note?.title || "");
-    setColor(note?.color || randomColor);
-    setEditorState(
-      EditorState.createWithContent(
-        ContentState.createFromText(note?.note || "")
-      )
-    );
+    if (note) {
+      const newNote = convertFromRaw(JSON.parse(note.note!));
+
+      setTitle(note.title!);
+      setColor(note.color!);
+      setEditorState(EditorState.createWithContent(newNote));
+    }
   }, [note]);
 
   useEffect(() => {
