@@ -7,6 +7,7 @@ import Button from "../../components/Button";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import Header from "../../components/Header";
 import Input from "../../components/Input";
+import Loading from "../../components/Loading";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -15,15 +16,13 @@ const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (loading) {
-      console.log("Loading...");
-      return;
-    }
     if (user) navigate("/");
-  }, [navigate, user, loading]);
+  }, [navigate, user]);
 
   return (
     <div className={Styles.Login}>
+      <Loading show={loading} />
+
       <Header />
 
       <div className={Styles.LoginBody}>

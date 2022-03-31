@@ -15,8 +15,9 @@ import useWindowDimensions from "../../hooks/useWindowDimensions";
 import draftToHtml from "draftjs-to-html";
 import useNote from "../../hooks/useNote";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../firebase";
+import { auth, db } from "../../firebase";
 import Loading from "../../components/Loading";
+import { save } from "../../shared/utils";
 
 const Editor = () => {
   const [user] = useAuthState(auth);
@@ -55,7 +56,7 @@ const Editor = () => {
       note: text,
     };
 
-    console.log("NEW NOTE", result);
+    save("notes", result);
   };
 
   useEffect(() => {

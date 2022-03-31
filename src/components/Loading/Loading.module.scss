@@ -4,7 +4,7 @@
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: #fff;
+  background-color: #b0bec5;
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -15,78 +15,6 @@
   &Show {
     opacity: 1;
     transition: 0.5s all;
-  }
-
-  &RED {
-    background-color: #ef9a9a;
-  }
-
-  &PINK {
-    background-color: #f48fb1;
-  }
-
-  &PURPLE {
-    background-color: #ce93d8;
-  }
-
-  &DEEPPURPLE {
-    background-color: #b39ddb;
-  }
-
-  &INDIGO {
-    background-color: #9fa8da;
-  }
-
-  &BLUE {
-    background-color: #90caf9;
-  }
-
-  &LIGHTBLUE {
-    background-color: #81d4fa;
-  }
-
-  &CYAN {
-    background-color: #80deea;
-  }
-
-  &TEAL {
-    background-color: #80cbc4;
-  }
-
-  &GREEN {
-    background-color: #a5d6a7;
-  }
-
-  &LIGHTGREEN {
-    background-color: #c5e1a5;
-  }
-
-  &LIME {
-    background-color: #e6ee9c;
-  }
-
-  &YELLOW {
-    background-color: #fff59d;
-  }
-
-  &AMBER {
-    background-color: #ffe082;
-  }
-
-  &ORANGE {
-    background-color: #ffcc80;
-  }
-
-  &DEEPORANGE {
-    background-color: #ffab91;
-  }
-
-  &BROWN {
-    background-color: #bcaaa4;
-  }
-
-  &GREY {
-    background-color: #b0bec5;
   }
 
   &Spinner {

@@ -1,4 +1,4 @@
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
 import { auth, db } from "../firebase";
 
 export const fetcher = async (
@@ -49,4 +49,8 @@ export const fetchNote = async (
   } finally {
     loading(false);
   }
+};
+
+export const save = async (collectionName: string, data: any) => {
+  addDoc(collection(db, collectionName), data);
 };
