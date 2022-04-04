@@ -18,7 +18,7 @@ const useNote = (id: number) => {
   useEffect(() => {
     setLoading(true);
     fetchNote(id, setNote, setLoading);
-  }, []);
+  }, [id]);
 
   return { note, loading };
 };
